@@ -160,7 +160,6 @@ void Cylinder::draw(int width, int height)
 	}
 	else
 	{
-		//this->ComputeLocalMatrix();
 		cc.world = this->getWorldMatrix();
 	}
 
