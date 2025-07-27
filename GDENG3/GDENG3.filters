@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GameEngine">
+      <UniqueIdentifier>{c34e7e0a-af21-48a7-ab2b-0a9b93d00f74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine">
+      <UniqueIdentifier>{24a7c335-e290-4cbd-8584-77b51e1d2290}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Window">
+      <UniqueIdentifier>{6bdeb162-f117-4642-9d7d-dfa593c9ccfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App">
+      <UniqueIdentifier>{615b4253-d615-4c35-928a-79ee4abf20b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\DeviceContext">
+      <UniqueIdentifier>{6f8e24d6-b58b-4864-8830-121fc05d5201}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\SwapChain">
+      <UniqueIdentifier>{88d3021e-7a77-4fb2-a50a-0cf269a37342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\VertexBuffer">
+      <UniqueIdentifier>{f0f32715-f0ba-4043-b0e5-5bb27d8df2e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\VertexShader">
+      <UniqueIdentifier>{effc5522-9938-49c9-be8d-ddcebca55ef8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File Shaders">
+      <UniqueIdentifier>{6affe650-ba28-4922-8f63-9a4b582de830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\PixelShader">
+      <UniqueIdentifier>{b3249377-d8ee-4087-bccf-73c166f15051}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\ConstantBuffer">
+      <UniqueIdentifier>{b4e0554f-2c8a-4479-bbc3-7e140fd164ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives">
+      <UniqueIdentifier>{01daf2ba-85fb-4781-a603-d72aa7ef82ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\2D">
+      <UniqueIdentifier>{795a25ef-b4f5-4cd5-9581-7e304b71af66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\2D\Rectangle">
+      <UniqueIdentifier>{70372f9c-020e-4bfe-9543-be875d9ed796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\2D\Triangle">
+      <UniqueIdentifier>{41f1d430-d07d-4c92-9fd9-5fae327c2adc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Math">
+      <UniqueIdentifier>{2af31e7d-2fc7-4b0f-b9fc-a77b4f810f8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Math\Vector3D">
+      <UniqueIdentifier>{9bdcfbe8-09c3-475a-9cae-dfd9b7391227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Math\Matrix4x4">
+      <UniqueIdentifier>{36f908b5-0164-4453-96d9-03288bbf79ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineTime">
+      <UniqueIdentifier>{4a9ea4cc-4cbb-4fc0-87b0-05a4cb2658b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\IndexBuffer">
+      <UniqueIdentifier>{1c8eb838-d6d1-4ddc-8bef-bc9869c5cfb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D">
+      <UniqueIdentifier>{69b97442-0ead-43e9-9c08-f21d98c67680}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\AGameObject">
+      <UniqueIdentifier>{01c287ec-aa73-4caa-bda4-da1c7c4c3357}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\Cube">
+      <UniqueIdentifier>{424ddca1-f78f-4c9e-aea1-d1c62eb4aee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\Cube\NormalCube">
+      <UniqueIdentifier>{e6434f80-af97-4292-91fb-6138d912579b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\Plane">
+      <UniqueIdentifier>{ff95557b-3c01-4df4-b608-97cdd661f3b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\Sphere">
+      <UniqueIdentifier>{f20cf03c-10b3-434e-89db-3010b2fe3d85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\Cylinder">
+      <UniqueIdentifier>{2f73deaf-12c8-434a-9330-161c7aac5c01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\InputSystem">
+      <UniqueIdentifier>{748d7c9f-f651-44b6-ad82-4be6d0c4100c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Math\Point">
+      <UniqueIdentifier>{5740c362-8232-40e9-96bc-ec1da95a43e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Math\Vector4D">
+      <UniqueIdentifier>{b9ec29d2-99bf-49f6-8edf-b20ba7cebd73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CameraSystem">
+      <UniqueIdentifier>{780a2e21-b153-46ef-93a3-5b76aeffdaad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CameraSystem\Camera">
+      <UniqueIdentifier>{f5aafc50-0e35-490a-8c29-0c6758a2a86c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CameraSystem\SceneCameraHandler">
+      <UniqueIdentifier>{9031bc94-d2b8-49f8-a457-00eebced1e99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{32ae5af7-1290-4691-a295-c06deec60e29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\AUIScreen">
+      <UniqueIdentifier>{5697f5ca-15ca-4b9d-92f8-23a2730910f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\CreditsScreen">
+      <UniqueIdentifier>{cc4cc3ef-7ca3-489c-9258-a63a3ec92d48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\HierarchyScreen">
+      <UniqueIdentifier>{14107f2c-bce5-4e21-b949-95b264da48f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\InspectorScreen">
+      <UniqueIdentifier>{c0d8781a-5f42-4223-8053-f769baf6323f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\MenuScreen">
+      <UniqueIdentifier>{01a4f664-b3d8-435c-baaa-587e3801f707}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ProfilerScreen">
+      <UniqueIdentifier>{8b7f1501-c6a7-49bd-a68b-53bdd6aa2c63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UIManager">
+      <UniqueIdentifier>{89319384-fdf7-4dd1-abdb-98af159c8f21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UINames">
+      <UniqueIdentifier>{1dc22bda-826e-465a-bc9e-4561de0de886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IMGUI">
+      <UniqueIdentifier>{147a0e12-0881-4a71-96cf-b9d4aaf997b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ColorPickerScreen">
+      <UniqueIdentifier>{e55d6019-53f4-43d2-a600-16efb1c2abcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjectManager">
+      <UniqueIdentifier>{f922ede5-4e2f-4b70-88f8-b01bc3900838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShaderLibrary">
+      <UniqueIdentifier>{73a88c85-dc24-4a98-bebc-09c19d77b2de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\ResourceManager">
+      <UniqueIdentifier>{f53158eb-37d8-4623-96f0-1784ec009074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\ResourceManager\Resource">
+      <UniqueIdentifier>{a36d435c-090e-434e-8f08-959a7d748272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\ResourceManager\TextureManager">
+      <UniqueIdentifier>{9a884f13-6f38-455b-826e-3ede965d1f01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\ResourceManager\TextureManager\Texture">
+      <UniqueIdentifier>{ee20514b-c7fe-4f1f-973d-d4b73e78e2a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\Cube\TexturedCube">
+      <UniqueIdentifier>{d4d87ec5-3674-4dc0-a7c5-5be1ba11e0c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Math\Vector2D">
+      <UniqueIdentifier>{bef12dd9-0a5c-40a3-bb2f-a35a881f27e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\VertexBufferTextured">
+      <UniqueIdentifier>{0b9f9d8f-6f40-493a-b692-3c4b66c8a72c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\ResourceManager\MeshManager">
+      <UniqueIdentifier>{30bded4c-5052-40b6-a376-94c7ae0fb20b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\ResourceManager\MeshManager\Mesh">
+      <UniqueIdentifier>{32f7af00-7f72-49a9-9975-3f4a0420f43a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Math\VertexMesh">
+      <UniqueIdentifier>{6d2b0e4e-6e72-452d-a49d-f6649c61198a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\OBJ">
+      <UniqueIdentifier>{768e5d68-b299-4b85-98f0-6a3fa1430c4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BaseSystem">
+      <UniqueIdentifier>{9f4c3939-b4ad-4417-9399-f713735227a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BaseSystem\PhysicsSystem">
+      <UniqueIdentifier>{43348cc2-74ca-49f3-b266-4549076ecb8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{a1766f9b-2332-4487-bdd8-cd29e0239660}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\PhysicsComponent">
+      <UniqueIdentifier>{d43348cc-cdac-4ccd-9263-e72b44955b49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\Cube\PhysicsCube">
+      <UniqueIdentifier>{f34ad404-7c3b-4dff-980b-558a95d19436}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\Plane\Normal Plane">
+      <UniqueIdentifier>{2a421d05-d7ac-4b85-b6ad-d57ca77c32c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\Plane\PhysicsPlane">
+      <UniqueIdentifier>{c156b869-9954-4d0a-9fd1-4792929471ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World Manager">
+      <UniqueIdentifier>{291778bc-8caf-410a-bed5-ae1c2dfc8da4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World Manager\EngineBackEnd">
+      <UniqueIdentifier>{18eb5de5-3304-41fe-91f2-80eba959b66b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ScreenPlayBack">
+      <UniqueIdentifier>{b631ef48-bc75-41a9-a1ce-627879ab65d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ScreenActions">
+      <UniqueIdentifier>{4e794dff-766e-43e8-8d78-cd1742e7080f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World Manager\EditorAction">
+      <UniqueIdentifier>{8bc7a4bb-c420-4f02-aaee-abc09838933b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World Manager\ActionHistory">
+      <UniqueIdentifier>{ffc32121-4e8f-409f-9138-9dbbaa58c7d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File System">
+      <UniqueIdentifier>{84629a41-7958-45fe-b7d6-e188b1a32d08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File System\SceneWriter">
+      <UniqueIdentifier>{fc30ea53-1e56-4f44-b1b0-c9c610dac9ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File System\SceneReader">
+      <UniqueIdentifier>{393733e1-5a52-4235-b9a4-d4dd54c19b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pugixml">
+      <UniqueIdentifier>{044a7c91-e60b-4d85-86d3-47b70b4ca81e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\3D\Capsule">
+      <UniqueIdentifier>{2d38a003-acdc-4ea5-be63-4df66e27907c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{78260460-2416-45ad-94a6-248838d42247}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\DebugConsole">
+      <UniqueIdentifier>{9145c44f-d84a-4f8c-9cf2-378cd50782b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GraphicsEngine.cpp">
+      <Filter>GameEngine\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SwapChain.cpp">
+      <Filter>GameEngine\GraphicsEngine\SwapChain</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>GameEngine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="AppWindow.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="DeviceContext.cpp">
+      <Filter>GameEngine\GraphicsEngine\DeviceContext</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBuffer.cpp">
+      <Filter>GameEngine\GraphicsEngine\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexShader.cpp">
+      <Filter>GameEngine\GraphicsEngine\VertexShader</Filter>
+    </ClCompile>
+    <ClCompile Include="PixelShader.cpp">
+      <Filter>GameEngine\GraphicsEngine\PixelShader</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantBuffer.cpp">
+      <Filter>GameEngine\GraphicsEngine\ConstantBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Primitives\2D\Rectangle</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Primitives\2D\Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3D.cpp">
+      <Filter>GameEngine\Math\Vector3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4x4.cpp">
+      <Filter>GameEngine\Math\Matrix4x4</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineTime.cpp">
+      <Filter>EngineTime</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexBuffer.cpp">
+      <Filter>GameEngine\GraphicsEngine\IndexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="AGameObject.cpp">
+      <Filter>Primitives\3D\AGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>GameEngine\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Primitives\3D\Cube\NormalCube</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Primitives\3D\Sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder.cpp">
+      <Filter>Primitives\3D\Cylinder</Filter>
+    </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>GameEngine\InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>GameEngine\Math\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4D.cpp">
+      <Filter>GameEngine\Math\Vector4D</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>CameraSystem\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCameraHandler.cpp">
+      <Filter>CameraSystem\SceneCameraHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="AUIScreen.cpp">
+      <Filter>UI\AUIScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditsScreen.cpp">
+      <Filter>UI\CreditsScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="HierarchyScreen.cpp">
+      <Filter>UI\HierarchyScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectorScreen.cpp">
+      <Filter>UI\InspectorScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScreen.cpp">
+      <Filter>UI\MenuScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="ProfilerScreen.cpp">
+      <Filter>UI\ProfilerScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>UI\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="IMGUI\imgui.cpp">
+      <Filter>IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="IMGUI\imgui_demo.cpp">
+      <Filter>IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="IMGUI\imgui_draw.cpp">
+      <Filter>IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="IMGUI\imgui_impl_dx11.cpp">
+      <Filter>IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="IMGUI\imgui_impl_win32.cpp">
+      <Filter>IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="IMGUI\imgui_widgets.cpp">
+      <Filter>IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPickerScreen.cpp">
+      <Filter>UI\ColorPickerScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectManager.cpp">
+      <Filter>GameObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Shaderlibrary.cpp">
+      <Filter>ShaderLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource.cpp">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\TextureManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\TextureManager\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturedCube.cpp">
+      <Filter>Primitives\3D\Cube\TexturedCube</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>GameEngine\Math\Vector2D</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBufferTextured.cpp">
+      <Filter>GameEngine\GraphicsEngine\VertexBufferTextured</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshManager.cpp">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\MeshManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\MeshManager\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexMesh.cpp">
+      <Filter>GameEngine\Math\VertexMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJStructure.cpp">
+      <Filter>Primitives\OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSystem.cpp">
+      <Filter>BaseSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSystem.cpp">
+      <Filter>BaseSystem\PhysicsSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="AComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsComponent.cpp">
+      <Filter>Component\PhysicsComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsCube.cpp">
+      <Filter>Primitives\3D\Cube\PhysicsCube</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Primitives\3D\Plane\Normal Plane</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsPlane.cpp">
+      <Filter>Primitives\3D\Plane\PhysicsPlane</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineBackEnd.cpp">
+      <Filter>World Manager\EngineBackEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenPlayBack.cpp">
+      <Filter>UI\ScreenPlayBack</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenActions.cpp">
+      <Filter>UI\ScreenActions</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorAction.cpp">
+      <Filter>World Manager\EditorAction</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionHistory.cpp">
+      <Filter>World Manager\ActionHistory</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneWriter.cpp">
+      <Filter>File System\SceneWriter</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneReader.cpp">
+      <Filter>File System\SceneReader</Filter>
+    </ClCompile>
+    <ClCompile Include="pugixml-1.13\src\pugixml.cpp">
+      <Filter>Pugixml</Filter>
+    </ClCompile>
+    <ClCompile Include="Capsule.cpp">
+      <Filter>Primitives\3D\Capsule</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugConsoleScreen.cpp">
+      <Filter>UI\DebugConsole</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GraphicsEngine.h">
+      <Filter>GameEngine\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SwapChain.h">
+      <Filter>GameEngine\GraphicsEngine\SwapChain</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>GameEngine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="AppWindow.h">
+      <Filter>App</Filter>
+    </ClInclude>
+    <ClInclude Include="DeviceContext.h">
+      <Filter>GameEngine\GraphicsEngine\DeviceContext</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBuffer.h">
+      <Filter>GameEngine\GraphicsEngine\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexShader.h">
+      <Filter>GameEngine\GraphicsEngine\VertexShader</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelShader.h">
+      <Filter>GameEngine\GraphicsEngine\PixelShader</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantBuffer.h">
+      <Filter>GameEngine\GraphicsEngine\ConstantBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Primitives\2D\Rectangle</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Primitives\2D\Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3D.h">
+      <Filter>GameEngine\Math\Vector3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4x4.h">
+      <Filter>GameEngine\Math\Matrix4x4</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineTime.h">
+      <Filter>EngineTime</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexBuffer.h">
+      <Filter>GameEngine\GraphicsEngine\IndexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="AGameObject.h">
+      <Filter>Primitives\3D\AGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>GameEngine\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Primitives\3D\Cube\NormalCube</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Primitives\3D\Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="Cylinder.h">
+      <Filter>Primitives\3D\Cylinder</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>GameEngine\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="InputListener.h">
+      <Filter>GameEngine\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>GameEngine\Math\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4D.h">
+      <Filter>GameEngine\Math\Vector4D</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>CameraSystem\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCameraHandler.h">
+      <Filter>CameraSystem\SceneCameraHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="AUIScreen.h">
+      <Filter>UI\AUIScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="CreditsScreen.h">
+      <Filter>UI\CreditsScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="HierarchyScreen.h">
+      <Filter>UI\HierarchyScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="InspectorScreen.h">
+      <Filter>UI\InspectorScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScreen.h">
+      <Filter>UI\MenuScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="ProfilerScreen.h">
+      <Filter>UI\ProfilerScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>UI\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="UINames.h">
+      <Filter>UI\UINames</Filter>
+    </ClInclude>
+    <ClInclude Include="IMGUI\imconfig.h">
+      <Filter>IMGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IMGUI\imgui.h">
+      <Filter>IMGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IMGUI\imgui_impl_dx11.h">
+      <Filter>IMGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IMGUI\imgui_impl_win32.h">
+      <Filter>IMGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IMGUI\imgui_internal.h">
+      <Filter>IMGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IMGUI\imstb_rectpack.h">
+      <Filter>IMGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IMGUI\imstb_textedit.h">
+      <Filter>IMGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IMGUI\imstb_truetype.h">
+      <Filter>IMGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorPickerScreen.h">
+      <Filter>UI\ColorPickerScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectManager.h">
+      <Filter>GameObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Shaderlibrary.h">
+      <Filter>ShaderLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\TextureManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\TextureManager\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturedCube.h">
+      <Filter>Primitives\3D\Cube\TexturedCube</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>GameEngine\Math\Vector2D</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBufferTextured.h">
+      <Filter>GameEngine\GraphicsEngine\VertexBufferTextured</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshManager.h">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\MeshManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\MeshManager\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexMesh.h">
+      <Filter>GameEngine\Math\VertexMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJStructure.h">
+      <Filter>Primitives\OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSystem.h">
+      <Filter>BaseSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSystem.h">
+      <Filter>BaseSystem\PhysicsSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="AComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsComponent.h">
+      <Filter>Component\PhysicsComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsCube.h">
+      <Filter>Primitives\3D\Cube\PhysicsCube</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Primitives\3D\Plane\Normal Plane</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsPlane.h">
+      <Filter>Primitives\3D\Plane\PhysicsPlane</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineBackEnd.h">
+      <Filter>World Manager\EngineBackEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenPlayBack.h">
+      <Filter>UI\ScreenPlayBack</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenActions.h">
+      <Filter>UI\ScreenActions</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorAction.h">
+      <Filter>World Manager\EditorAction</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionHistory.h">
+      <Filter>World Manager\ActionHistory</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneWriter.h">
+      <Filter>File System\SceneWriter</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneReader.h">
+      <Filter>File System\SceneReader</Filter>
+    </ClInclude>
+    <ClInclude Include="pugixml-1.13\src\pugiconfig.hpp">
+      <Filter>Pugixml</Filter>
+    </ClInclude>
+    <ClInclude Include="pugixml-1.13\src\pugixml.hpp">
+      <Filter>Pugixml</Filter>
+    </ClInclude>
+    <ClInclude Include="Capsule.h">
+      <Filter>Primitives\3D\Capsule</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugConsoleScreen.h">
+      <Filter>UI\DebugConsole</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="VertexShader.hlsl">
+      <Filter>File Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="shader.fx">
+      <Filter>File Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="PixelShader.hlsl">
+      <Filter>File Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="TexturedVertexShader.hlsl">
+      <Filter>File Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="TexturedPixelShader.hlsl">
+      <Filter>File Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="VertexMeshLayoutShader.hlsl">
+      <Filter>File Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="PixelMeshLayoutShader.hlsl">
+      <Filter>File Shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMGUI\imgui.ini">
+      <Filter>IMGUI</Filter>
+    </None>
+  </ItemGroup>
+</Project>
