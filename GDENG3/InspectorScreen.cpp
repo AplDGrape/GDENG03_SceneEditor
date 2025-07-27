@@ -84,7 +84,7 @@ void InspectorScreen::generateEditor()
 
 						delete componentAttached;
 						GameObjectManager::getInstance()->getSelectedObject()->detachComponent(componentAttached);
-						
+						componentAttached = nullptr;
 					}
 				}
 			}

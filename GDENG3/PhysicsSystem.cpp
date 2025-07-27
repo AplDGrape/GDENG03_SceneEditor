@@ -61,9 +61,17 @@ void PhysicsSystem::updateAllComponents()
 	{
 		this->physicsWorld->update(EngineTime::getDeltaTime());
 
-		for (int i = 0; i < this->componentList.size(); i++)
+		for (int i = 0; i < this->componentList.size(); )
 		{
-			this->componentList[i]->perform(EngineTime::getDeltaTime());
+			PhysicsComponent* comp = this->componentList[i];
+			if (!comp->getRigidBody())
+			{
+				this->componentList.erase(this->componentList.begin() + i);
+				continue;
+			}
+
+			comp->perform(EngineTime::getDeltaTime());
+			++i;
 		}
 	}
 }
