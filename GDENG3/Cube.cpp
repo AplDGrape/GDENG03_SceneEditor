@@ -187,6 +187,7 @@ void Cube::draw(int width, int height)
 	else
 	{
 		//this->ComputeLocalMatrix();
+		//cc.world = this->getLocalMatrix();
 		cc.world = this->getWorldMatrix();
 	}
 	

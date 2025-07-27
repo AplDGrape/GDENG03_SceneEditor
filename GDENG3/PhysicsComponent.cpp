@@ -57,7 +57,8 @@ void PhysicsComponent::perform(float deltaTime)
 	float Matrix[16];
 	transform.getOpenGLMatrix(Matrix);
 
-	this->getOwner()->setLocalMatrix(Matrix);
+	Vector3D worldPos(Matrix[12], Matrix[13], Matrix[14]);
+	this->getOwner()->setWorldPosition(worldPos);
 	//std::cout << "My component is updating: " << this->name << "\n";
 }
 

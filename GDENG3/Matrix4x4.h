@@ -174,6 +174,16 @@ public:
 	{
 		return Vector3D(m_mat[3][0], m_mat[3][1], m_mat[3][2]);
 	}
+	Vector3D transformPoint(const Vector3D& point) const
+	{
+		Vector3D result;
+
+		result.m_x = (point.m_x * m_mat[0][0]) + (point.m_y * m_mat[1][0]) + (point.m_z * m_mat[2][0]) + m_mat[3][0];
+		result.m_y = (point.m_x * m_mat[0][1]) + (point.m_y * m_mat[1][1]) + (point.m_z * m_mat[2][1]) + m_mat[3][1];
+		result.m_z = (point.m_x * m_mat[0][2]) + (point.m_y * m_mat[1][2]) + (point.m_z * m_mat[2][2]) + m_mat[3][2];
+
+		return result;
+	}
 
 	void setPerspectiveFovLH(float fov, float aspect, float znear, float zfar)
 	{

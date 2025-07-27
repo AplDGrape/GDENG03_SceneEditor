@@ -383,6 +383,22 @@ void AGameObject::setParentPreserveWorld(AGameObject* newParent)
 	}
 }
 
+void AGameObject::setWorldPosition(Vector3D worldPos)
+{
+	if (this->parent)
+	{
+		Matrix4x4 parentWorld = this->parent->getWorldMatrix();
+		parentWorld.getInverse();
+
+		Vector3D localPos = parentWorld.transformPoint(worldPos);
+		this->setPosition(localPos);
+	}
+	else
+	{
+		this->setPosition(worldPos);
+	}
+}
+
 Matrix4x4 AGameObject::getWorldMatrix()
 {
 	ComputeLocalMatrix();

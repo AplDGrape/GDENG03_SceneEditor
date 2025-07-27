@@ -121,6 +121,7 @@ public:
 	void addChild(AGameObject* child);
 	std::vector<AGameObject*> getChildren();
 	void setParentPreserveWorld(AGameObject* newParent);
+	void setWorldPosition(Vector3D worldPos);
 
 	Matrix4x4 getWorldMatrix();
 protected:
