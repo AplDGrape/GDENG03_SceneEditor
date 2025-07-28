@@ -455,6 +455,12 @@
     <ClInclude Include="DemoScreen.h">
       <Filter>UI\DemoWindow</Filter>
     </ClInclude>
+    <ClInclude Include="DebugStreamBuf.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugRedirector.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="App">

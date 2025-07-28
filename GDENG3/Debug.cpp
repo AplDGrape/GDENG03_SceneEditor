@@ -19,12 +19,14 @@ std::vector<Debug::DebugMessage> Debug::GetMessageList(LogLevel level)
 			filteredMessageList.push_back(debugMessage);
 		}
 	}
-
-	for (auto& debugMessage : m_MessageList)
+	else
 	{
-		if (debugMessage.Level == level)
+		for (auto& debugMessage : m_MessageList)
 		{
-			filteredMessageList.push_back(debugMessage);
+			if (debugMessage.Level == level)
+			{
+				filteredMessageList.push_back(debugMessage);
+			}
 		}
 	}
 

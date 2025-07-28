@@ -167,6 +167,8 @@
     <ClInclude Include="Cylinder.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="DebugConsoleScreen.h" />
+    <ClInclude Include="DebugRedirector.h" />
+    <ClInclude Include="DebugStreamBuf.h" />
     <ClInclude Include="DemoScreen.h" />
     <ClInclude Include="DeviceContext.h" />
     <ClInclude Include="EditorAction.h" />

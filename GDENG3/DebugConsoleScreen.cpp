@@ -8,6 +8,7 @@ DebugConsoleScreen::DebugConsoleScreen() : AUIScreen("Debug Console Screen")
 void DebugConsoleScreen::drawUI()
 {
 	ImGui::Begin(name.c_str());
+	ImGui::BeginChild("ScrollingRegion", ImVec2(0, -30), false, ImGuiWindowFlags_AlwaysVerticalScrollbar);
 
 	auto messageList = Debug::GetInstance().GetMessageList(Debug::LogLevel::None);
 
@@ -20,6 +21,7 @@ void DebugConsoleScreen::drawUI()
 	if (wf)
 		ImGui::Text("Wireframe Mode: %s", wf->isEnabled() ? "ON" : "OFF");
 
+	ImGui::EndChild();
 	ImGui::End();
 }
 
