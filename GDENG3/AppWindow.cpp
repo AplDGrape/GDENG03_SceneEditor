@@ -86,6 +86,8 @@ void AppWindow::onUpdate()
 // AppWindow singleton
 void AppWindow::initialize()
 {
+	DebugRedirector::Initialize();
+
 	sharedInstance = new AppWindow();
 
 	DebugRedirector::Initialize();
@@ -99,11 +101,11 @@ void AppWindow::onCreate()
 	Window::onCreate();
 	InputSystem::initialize();
 
+	Debug::Log("Initialize");
+
+
 	m_wireframe = new Wireframe(GraphicsEngine::getInstance()->getD3Ddevice());
-
-	// Debug string test
-	//std::cout << "Hello from std::cout redirected!\n";
-
+	
 	BaseComponentSystem::initialize();
 }
 
@@ -146,8 +148,10 @@ void AppWindow::onDestroy()
 {
 	Window::onDestroy();
 	InputSystem::destroy();
+
 	delete m_wireframe;
 	m_swap_chain->release();
+
 	GraphicsEngine::getInstance()->release();
 	TextureManager::destroy();
 	BaseComponentSystem::destroy();

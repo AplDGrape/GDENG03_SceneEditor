@@ -2,6 +2,7 @@
 #include "BaseComponentSystem.h"
 #include "AGameObject.h"
 #include "Vector3D.h"
+#include "EngineBackEnd.h"
 
 PhysicsComponent::PhysicsComponent(String name, AGameObject* owner) : AComponent(name, ComponentType::Physics, owner)
 {
@@ -53,11 +54,17 @@ PhysicsComponent::PhysicsComponent(String name, AGameObject* owner) : AComponent
 
 void PhysicsComponent::perform(float deltaTime)
 {
+	if (!this->rigidBody) return;
+
+	if (EngineBackEnd::getInstance()->getMode() != EngineBackEnd::EditorMode::PLAY)
+		return;
+
 	const Transform transform = this->rigidBody->getTransform();
 	float Matrix[16];
 	transform.getOpenGLMatrix(Matrix);
 
-	this->getOwner()->setLocalMatrix(Matrix);
+	Vector3D worldPos(Matrix[12], Matrix[13], Matrix[14]);
+	this->getOwner()->setWorldPosition(worldPos);
 	//std::cout << "My component is updating: " << this->name << "\n";
 }
 
@@ -66,7 +73,28 @@ RigidBody* PhysicsComponent::getRigidBody()
 	return this->rigidBody;
 }
 
+void PhysicsComponent::setRigidBody(RigidBody* body)
+{
+	this->rigidBody = body;
+}
+
+void PhysicsComponent::destroy()
+{
+	if (this->rigidBody)
+	{
+		PhysicsWorld* physicsWorld = BaseComponentSystem::getInstance()->getPhysicsSystem()->getPhysicsWorld();
+		physicsWorld->destroyRigidBody(this->rigidBody);
+
+		this->rigidBody = nullptr;
+	}
+
+	BaseComponentSystem::getInstance()->getPhysicsSystem()->unregisterComponent(this);
+}
+
 PhysicsComponent::~PhysicsComponent()
 {
-	BaseComponentSystem::getInstance()->getPhysicsSystem()->unregisterComponent(this);
+	if (this->rigidBody)
+	{
+		destroy();
+	}
 }

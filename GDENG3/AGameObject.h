@@ -115,6 +115,15 @@ public:
 
 	virtual void saveEditState();
 	virtual void restoreEditState();
+public:
+	void setParent(AGameObject* parent);
+	AGameObject* getParent();
+	void addChild(AGameObject* child);
+	std::vector<AGameObject*> getChildren();
+	void setParentPreserveWorld(AGameObject* newParent);
+	void setWorldPosition(Vector3D worldPos);
+
+	Matrix4x4 getWorldMatrix();
 protected:
 	VertexShader* vertex_shader;
 	PixelShader* pixel_shader;
@@ -150,5 +159,8 @@ protected:
 
 	virtual void awake();
 private:
+	AGameObject* parent = nullptr;
+	std::vector<AGameObject*> children;
+
 	EditorAction* lastEditState = NULL;
 };

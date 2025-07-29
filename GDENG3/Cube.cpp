@@ -182,14 +182,12 @@ void Cube::draw(int width, int height)
 	
 	if(this->overrideMatrix)
 	{
-		cc.world = this->getLocalMatrix();
+		cc.world = this->getWorldMatrix();
 	}
 	else
 	{
-		this->ComputeLocalMatrix();
-		cc.world = this->getLocalMatrix();
+		cc.world = this->getWorldMatrix();
 	}
-	
 
 	Matrix4x4 cameraMatrix = SceneCameraHandler::getInstance()->getSceneCameraViewMatrix();
 	cc.view = cameraMatrix;

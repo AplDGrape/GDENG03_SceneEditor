@@ -77,9 +77,15 @@ void InspectorScreen::generateEditor()
 				{
 					GameObjectManager::getInstance()->getSelectedObject()->ComputeLocalMatrix();
 					PhysicsComponent* componentAttached = (PhysicsComponent*)GameObjectManager::getInstance()->getSelectedObject()->findComponentbyType(AComponent::Physics, "Physics Component");
-					GameObjectManager::getInstance()->getSelectedObject()->detachComponent((PhysicsComponent*)GameObjectManager::getInstance()->getSelectedObject()->findComponentbyType(AComponent::Physics, "Physics Component"));
-					delete componentAttached;
-					delete (PhysicsComponent*)GameObjectManager::getInstance()->getSelectedObject()->findComponentbyType(AComponent::Physics, "Physics Component");
+
+					if (componentAttached)
+					{
+						componentAttached->destroy();
+
+						delete componentAttached;
+						GameObjectManager::getInstance()->getSelectedObject()->detachComponent(componentAttached);
+						componentAttached = nullptr;
+					}
 				}
 			}
 			

@@ -113,9 +113,7 @@ void TexturedCube::draw(int width, int height)
 		DeviceContext* context = GraphicsEngine::getInstance()->getImmediateDeviceContext();
 
 		constant cc;
-		this->ComputeLocalMatrix();
-
-		cc.world = this->getLocalMatrix();
+		cc.world = this->getWorldMatrix();
 
 		Matrix4x4 cameraMatrix = SceneCameraHandler::getInstance()->getSceneCameraViewMatrix();
 		cc.view = cameraMatrix;
