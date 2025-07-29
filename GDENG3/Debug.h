@@ -4,6 +4,7 @@
 #include <string>
 #include <format>
 #include <source_location>
+#include <cstdio>
 
 class Debug final
 {
@@ -31,11 +32,11 @@ public:
 	template <typename... Args>
 	static void LogError(bool assertTrue, std::string_view message, Args&&... args);
 
+	void StoreMessage(const LogLevel& level, const std::string& message);
+
 	std::vector<DebugMessage> GetMessageList(LogLevel level);
 private:
 	Debug();
-
-	void StoreMessage(const LogLevel& level, const std::string& message);
 
 	std::vector<DebugMessage> m_MessageList;
 
@@ -50,7 +51,8 @@ inline void Debug::Log(std::string_view message, Args&&... args)
 
 	GetInstance().StoreMessage(LogLevel::Info, logString);
 
-	std::cout << logString;
+	//std::cout << logString;
+	std::fwrite(logString.c_str(), 1, logString.size(), stdout);
 }
 
 template<typename ...Args>
@@ -66,5 +68,6 @@ inline void Debug::LogError(bool assertTrue, std::string_view message, Args&&...
 
 	GetInstance().StoreMessage(LogLevel::Error, errorString);
 
-	std::cout << errorString;
+	//std::cout << errorString;
+	std::fwrite(errorString.c_str(), 1, errorString.size(), stdout);
 }
