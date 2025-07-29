@@ -1,36 +1,27 @@
 #pragma once
 #include <streambuf>
-#include <ostream>
 #include <string>
 #include "Debug.h"
 
-class DebugStreamBuf : public std::streambuf 
+class DebugStreamBuf : public std::streambuf
 {
 public:
-	DebugStreamBuf(Debug::LogLevel level = Debug::LogLevel::Info)
-		: m_level(level) {}
+	DebugStreamBuf(Debug::LogLevel level) : m_level(level) {}
 
 protected:
-	virtual int overflow(int c) override {
-		if (c != EOF) {
-			m_buffer += static_cast<char>(c);
-			if (c == '\n') {
+	int_type overflow(int_type ch) override
+	{
+		if (ch != EOF) {
+			m_buffer += static_cast<char>(ch);
+			if (ch == '\n') {
 				Debug::GetInstance().StoreMessage(m_level, m_buffer);
 				m_buffer.clear();
 			}
 		}
-		return c;
-	}
-
-	virtual int sync() override {
-		if (!m_buffer.empty()) {
-			Debug::GetInstance().StoreMessage(m_level, m_buffer);
-			m_buffer.clear();
-		}
-		return 0;
+		return ch;
 	}
 
 private:
-	std::string m_buffer;
 	Debug::LogLevel m_level;
+	std::string m_buffer;
 };

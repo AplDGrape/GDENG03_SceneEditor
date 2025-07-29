@@ -90,6 +90,7 @@ void AppWindow::initialize()
 
 	sharedInstance = new AppWindow();
 
+	DebugRedirector::Initialize();
 	GraphicsEngine::initialize();
 
 	sharedInstance->init();
@@ -102,6 +103,7 @@ void AppWindow::onCreate()
 
 	Debug::Log("Initialize");
 
+
 	m_wireframe = new Wireframe(GraphicsEngine::getInstance()->getD3Ddevice());
 	
 	BaseComponentSystem::initialize();
@@ -110,6 +112,7 @@ void AppWindow::onCreate()
 // Initialize all Engine Systems
 void AppWindow::initializeEngine()
 {
+	//DebugRedirector::Initialize();
 	//GraphicsEngine::initialize();
 	EngineTime::initialize();
 	EngineBackEnd::initialize();
@@ -131,6 +134,8 @@ void AppWindow::initializeEngine()
 	int height = rc.bottom - rc.top;
 
 	m_swap_chain->init(this->m_hwnd, width, height);
+
+	Debug::Log("Initialize");
 }
 
 // Initialize UI
