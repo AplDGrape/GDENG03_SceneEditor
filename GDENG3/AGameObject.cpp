@@ -374,7 +374,7 @@ void AGameObject::updateTransformFromParent()
 		this->ComputeLocalMatrix();
 
 		// Then multiply it with the parent’s local matrix to get world space
-		this->LocalMatrix = this->parent->getWorldMatrix().multiplyTo(this->LocalMatrix);
+		//this->LocalMatrix = this->parent->getWorldMatrix().multiplyTo(this->LocalMatrix);
 	}
 
 	for (AGameObject* child : children)
