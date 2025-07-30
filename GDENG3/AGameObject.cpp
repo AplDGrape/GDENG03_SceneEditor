@@ -332,6 +332,67 @@ void AGameObject::restoreEditState()
 	}
 }
 
+void AGameObject::setParent(AGameObject* newParent) {
+	if (this->parent != nullptr) {
+		this->parent->removeChild(this);
+	}
+	this->parent = newParent;
+	if (newParent != nullptr) {
+		newParent->children.push_back(this);
+	}
+	OutputDebugStringA(("Set " + this->getName() + " parent to " + newParent->getName() + "\n").c_str());
+}
+
+void AGameObject::removeParent() {
+	if (this->parent != nullptr) {
+		this->parent->removeChild(this);
+		this->parent = nullptr;
+	}
+}
+
+AGameObject* AGameObject::getParent() {
+	return this->parent;
+}
+
+const std::vector<AGameObject*>& AGameObject::getChildren() const {
+	return this->children;
+}
+
+void AGameObject::removeChild(AGameObject* child) {
+	this->children.erase(std::remove(this->children.begin(), this->children.end(), child), this->children.end());
+}
+
+bool AGameObject::hasPhysics() {
+	return this->findComponentbyType(AComponent::Physics, "Physics Component") != nullptr;
+}
+
+void AGameObject::updateTransformFromParent()
+{
+	if (this->parent && !this->hasPhysics())
+	{
+		// Recompute this object’s local matrix from its own position/scale/rotation
+		this->ComputeLocalMatrix();
+
+		// Then multiply it with the parent’s local matrix to get world space
+		this->LocalMatrix = this->parent->getLocalMatrix().multiplyTo(this->LocalMatrix);
+	}
+
+	for (AGameObject* child : children)
+	{
+		child->updateTransformFromParent();
+	}
+}
+
+bool AGameObject::isAncestorOf(AGameObject* potentialChild)
+{
+	AGameObject* current = potentialChild->getParent();
+	while (current != nullptr) {
+		if (current == this) return true;
+		current = current->getParent();
+	}
+	return false;
+}
+
 void AGameObject::awake()
 {
 }

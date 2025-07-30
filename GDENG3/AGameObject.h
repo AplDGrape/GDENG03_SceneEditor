@@ -151,4 +151,17 @@ protected:
 	virtual void awake();
 private:
 	EditorAction* lastEditState = NULL;
+private:
+	AGameObject* parent = nullptr;
+	std::vector<AGameObject*> children;
+public:
+	void setParent(AGameObject* newParent);
+	void removeParent();
+	AGameObject* getParent();
+	const std::vector<AGameObject*>& getChildren() const;
+	void removeChild(AGameObject* child);
+
+	bool hasPhysics();
+	void updateTransformFromParent();
+	bool isAncestorOf(AGameObject* potentialChild);
 };

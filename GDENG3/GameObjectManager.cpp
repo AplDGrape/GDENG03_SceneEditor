@@ -1,5 +1,6 @@
 #include "GameObjectManager.h"
 #include "EngineTime.h"
+#include "AGameObject.h"
 
 GameObjectManager* GameObjectManager::sharedInstance = NULL;
 
@@ -40,6 +41,8 @@ int GameObjectManager::activeObjects()
 
 void GameObjectManager::updateAll()
 {
+	this->updateTransforms();
+
 	for(AGameObject* gameobject: this->GameObjectList)
 	{
 		for(AComponent* component: gameobject->getComponentsOfType(AComponent::Physics))
@@ -53,6 +56,18 @@ void GameObjectManager::updateAll()
 		this->GameObjectList[i]->update(EngineTime::getDeltaTime());
 	}
 	*/
+}
+
+void GameObjectManager::updateTransforms()
+{
+	for (AGameObject* obj : this->GameObjectList)
+	{
+		// Only update root objects — the updateTransform() function will recurse into children
+		if (obj->getParent() == nullptr)
+		{
+			obj->updateTransformFromParent();
+		}
+	}
 }
 
 void GameObjectManager::renderAll(int viewportWidth, int viewportHeight)

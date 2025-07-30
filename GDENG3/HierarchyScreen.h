@@ -12,6 +12,7 @@ public:
 	HierarchyScreen();
 
 	void drawUI() override;
+	void drawObjectHierarchyRecursive(AGameObject* obj, GameObjectManager* manager);
 
 	~HierarchyScreen();
 private:
