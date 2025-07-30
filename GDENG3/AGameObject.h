@@ -115,6 +115,20 @@ public:
 
 	virtual void saveEditState();
 	virtual void restoreEditState();
+public:
+	AGameObject* getParent();
+
+	void setParent(AGameObject* newParent);
+	void removeParent();
+	void removeChild(AGameObject* child);
+
+	void updateTransformFromParent();
+	const std::vector<AGameObject*>& getChildren() const;
+
+	bool hasPhysics();
+	bool isAncestorOf(AGameObject* potentialChild);
+
+	Matrix4x4 getWorldMatrix();
 protected:
 	VertexShader* vertex_shader;
 	PixelShader* pixel_shader;
@@ -154,16 +168,4 @@ private:
 private:
 	AGameObject* parent = nullptr;
 	std::vector<AGameObject*> children;
-public:
-	void setParent(AGameObject* newParent);
-	void removeParent();
-	AGameObject* getParent();
-	const std::vector<AGameObject*>& getChildren() const;
-	void removeChild(AGameObject* child);
-
-	bool hasPhysics();
-	void updateTransformFromParent();
-	bool isAncestorOf(AGameObject* potentialChild);
-
-	Matrix4x4 getWorldMatrix();
 };

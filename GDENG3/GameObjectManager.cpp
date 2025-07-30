@@ -1,6 +1,6 @@
+#include "AGameObject.h"
 #include "GameObjectManager.h"
 #include "EngineTime.h"
-#include "AGameObject.h"
 
 GameObjectManager* GameObjectManager::sharedInstance = NULL;
 
@@ -50,19 +50,12 @@ void GameObjectManager::updateAll()
 			component->perform(EngineTime::getDeltaTime());
 		}
 	}
-	/*
-	for(int i = 0; i < this->GameObjectList.size(); i++)
-	{
-		this->GameObjectList[i]->update(EngineTime::getDeltaTime());
-	}
-	*/
 }
 
 void GameObjectManager::updateTransforms()
 {
 	for (AGameObject* obj : this->GameObjectList)
 	{
-		// Only update root objects — the updateTransform() function will recurse into children
 		if (obj->getParent() == nullptr)
 		{
 			obj->updateTransformFromParent();

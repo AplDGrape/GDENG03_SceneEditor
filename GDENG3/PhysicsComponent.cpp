@@ -73,8 +73,6 @@ void PhysicsComponent::clearRigidBody()
 
 PhysicsComponent::~PhysicsComponent()
 {
-	//BaseComponentSystem::getInstance()->getPhysicsSystem()->unregisterComponent(this);
-
 	if (this->rigidBody != nullptr)
 	{
 		BaseComponentSystem::getInstance()->getPhysicsSystem()->getPhysicsWorld()->destroyRigidBody(this->rigidBody);

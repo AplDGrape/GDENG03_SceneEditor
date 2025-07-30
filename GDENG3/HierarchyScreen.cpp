@@ -1,5 +1,4 @@
 #include "HierarchyScreen.h"
-#include "GameObjectManager.h"
 
 HierarchyScreen::HierarchyScreen():AUIScreen("HierarchyScreen")
 {
@@ -20,17 +19,6 @@ HierarchyScreen::~HierarchyScreen()
 
 void HierarchyScreen::generateButtons()
 {
-	/*GameObjectManager* manager = GameObjectManager::getInstance();
-
-	for(int i = 0; i < GameObjectManager::getInstance()->activeObjects(); i++)
-	{
-		if (ImGui::Button(manager->getAllObjects()[i]->getName().c_str(), ImVec2(160.0f, 0.0f)))
-		{
-			AGameObject* selectedObject = manager->getAllObjects()[i];
-			manager->setSelectedObject(selectedObject->getName());
-		}
-		
-	}*/
 	GameObjectManager* manager = GameObjectManager::getInstance();
 	std::vector<AGameObject*> allObjects = manager->getAllObjects();
 
@@ -51,33 +39,42 @@ void HierarchyScreen::drawObjectHierarchyRecursive(AGameObject* obj, GameObjectM
     if (obj->getChildren().empty()) flags |= ImGuiTreeNodeFlags_Leaf;
 
     bool open = ImGui::TreeNodeEx(obj->getName().c_str(), flags);
-    if (ImGui::IsItemClicked()) {
+    if (ImGui::IsItemClicked()) 
+    {
         manager->setSelectedObject(obj);
     }
 
     // Drag & Drop Source
-    if (ImGui::BeginDragDropSource()) {
+    if (ImGui::BeginDragDropSource()) 
+    {
         ImGui::SetDragDropPayload("GAMEOBJECT_DRAG", obj->getName().c_str(), obj->getName().size() + 1);
         ImGui::Text("Dragging: %s", obj->getName().c_str());
         ImGui::EndDragDropSource();
     }
 
     // Drag & Drop Target
-    if (ImGui::BeginDragDropTarget()) {
-        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GAMEOBJECT_DRAG")) {
+    if (ImGui::BeginDragDropTarget()) 
+    {
+        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GAMEOBJECT_DRAG")) 
+        {
             std::string draggedName = (const char*)payload->Data;
             AGameObject* dragged = manager->findObjectByName(draggedName);
-            if (dragged && dragged != obj && !dragged->hasPhysics() && !dragged->isAncestorOf(obj)) {
+
+            if (dragged && dragged != obj && !dragged->hasPhysics() && !dragged->isAncestorOf(obj)) 
+            {
                 dragged->setParent(obj);
             }
         }
         ImGui::EndDragDropTarget();
     }
 
-    if (open) {
-        for (AGameObject* child : obj->getChildren()) {
+    if (open) 
+    {
+        for (AGameObject* child : obj->getChildren()) 
+        {
             drawObjectHierarchyRecursive(child, manager);
         }
+
         ImGui::TreePop();
     }
 
