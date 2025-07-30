@@ -164,9 +164,6 @@ protected:
 
 	virtual void awake();
 private:
-	AGameObject* parent = nullptr;
-	std::vector<AGameObject*> children;
-
 	EditorAction* lastEditState = NULL;
 private:
 	AGameObject* parent = nullptr;

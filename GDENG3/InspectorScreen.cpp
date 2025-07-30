@@ -80,7 +80,7 @@ void InspectorScreen::generateEditor()
 
 					if (componentAttached)
 					{
-						componentAttached->destroy();
+						//componentAttached->destroy();
 
 						delete componentAttached;
 						GameObjectManager::getInstance()->getSelectedObject()->detachComponent(componentAttached);
