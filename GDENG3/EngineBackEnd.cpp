@@ -1,5 +1,8 @@
 #include "EngineBackEnd.h"
 #include "GameObjectManager.h"
+#include "PhysicsSystem.h"
+#include "PhysicsComponent.h"
+#include "BaseComponentSystem.h"
 #include <cstddef>
 
 EngineBackEnd* EngineBackEnd::sharedInstance = NULL;
@@ -29,6 +32,21 @@ void EngineBackEnd::setMode(EditorMode mode)
 	}
 	else if(this->editorMode == EditorMode::EDITOR)
 	{
+		PhysicsSystem* physSys = BaseComponentSystem::getInstance()->getPhysicsSystem();
+		PhysicsWorld* world = physSys->getPhysicsWorld();
+
+		for (PhysicsComponent* comp : physSys->getAllComponents())
+		{
+			if (comp && comp->getRigidBody())
+			{
+				world->destroyRigidBody(comp->getRigidBody());
+				comp->clearRigidBody(); // Null it out
+			}
+		}
+		physSys->getAllComponents().clear();
+
+		BaseComponentSystem::getInstance()->getPhysicsSystem()->getAllComponents().clear();
+
 		GameObjectManager::getInstance()->restoreEditStates();
 	}
 }

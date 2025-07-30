@@ -15,6 +15,9 @@ PhysicsSystem::PhysicsSystem()
 
 void PhysicsSystem::registerComponent(PhysicsComponent* component)
 {
+	if (component == nullptr || component->getRigidBody() == nullptr)
+		return;
+
 	this->componentList.push_back(component);
 	this->componentTable[component->getName()] = component;
 }
