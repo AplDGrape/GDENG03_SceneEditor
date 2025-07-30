@@ -116,12 +116,17 @@ public:
 	virtual void saveEditState();
 	virtual void restoreEditState();
 public:
-	void setParent(AGameObject* parent);
 	AGameObject* getParent();
-	void addChild(AGameObject* child);
-	std::vector<AGameObject*> getChildren();
-	void setParentPreserveWorld(AGameObject* newParent);
-	void setWorldPosition(Vector3D worldPos);
+
+	void setParent(AGameObject* newParent);
+	void removeParent();
+	void removeChild(AGameObject* child);
+
+	void updateTransformFromParent();
+	const std::vector<AGameObject*>& getChildren() const;
+
+	bool hasPhysics();
+	bool isAncestorOf(AGameObject* potentialChild);
 
 	Matrix4x4 getWorldMatrix();
 protected:
@@ -163,4 +168,7 @@ private:
 	std::vector<AGameObject*> children;
 
 	EditorAction* lastEditState = NULL;
+private:
+	AGameObject* parent = nullptr;
+	std::vector<AGameObject*> children;
 };

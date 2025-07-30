@@ -78,6 +78,8 @@ public:
 	void generateTeapotOBJ();
 	void generateAllOBJ();
 
+	void updateTransforms();
+
 	// Render from file
 	void createObjectFromFile(String name, AGameObject::PrimitiveType type, Vector3D position, Vector3D rotation, Vector3D scale, bool rigidBody);
 private:

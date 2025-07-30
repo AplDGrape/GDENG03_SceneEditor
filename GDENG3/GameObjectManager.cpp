@@ -1,3 +1,4 @@
+#include "AGameObject.h"
 #include "GameObjectManager.h"
 #include "EngineTime.h"
 
@@ -40,6 +41,8 @@ int GameObjectManager::activeObjects()
 
 void GameObjectManager::updateAll()
 {
+	this->updateTransforms();
+
 	for(AGameObject* gameobject: this->GameObjectList)
 	{
 		for(AComponent* component: gameobject->getComponentsOfType(AComponent::Physics))
@@ -47,12 +50,17 @@ void GameObjectManager::updateAll()
 			component->perform(EngineTime::getDeltaTime());
 		}
 	}
-	/*
-	for(int i = 0; i < this->GameObjectList.size(); i++)
+}
+
+void GameObjectManager::updateTransforms()
+{
+	for (AGameObject* obj : this->GameObjectList)
 	{
-		this->GameObjectList[i]->update(EngineTime::getDeltaTime());
+		if (obj->getParent() == nullptr)
+		{
+			obj->updateTransformFromParent();
+		}
 	}
-	*/
 }
 
 void GameObjectManager::renderAll(int viewportWidth, int viewportHeight)

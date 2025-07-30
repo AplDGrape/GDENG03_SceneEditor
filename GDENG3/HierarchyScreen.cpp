@@ -1,5 +1,4 @@
 #include "HierarchyScreen.h"
-#include "GameObjectManager.h"
 
 HierarchyScreen::HierarchyScreen():AUIScreen("HierarchyScreen")
 {
@@ -21,69 +20,63 @@ HierarchyScreen::~HierarchyScreen()
 void HierarchyScreen::generateButtons()
 {
 	GameObjectManager* manager = GameObjectManager::getInstance();
-	const auto& allObjects = manager->getAllObjects();
+	std::vector<AGameObject*> allObjects = manager->getAllObjects();
 
 	for (AGameObject* obj : allObjects)
 	{
-		if (obj->getParent() == nullptr)
-		{
-			drawObjectNodeRecursive(obj);
+		if (obj->getParent() == nullptr) {
+			drawObjectHierarchyRecursive(obj, manager);
 		}
 	}
 }
 
-void HierarchyScreen::drawObjectNodeRecursive(AGameObject* obj)
+void HierarchyScreen::drawObjectHierarchyRecursive(AGameObject* obj, GameObjectManager* manager)
 {
-	GameObjectManager* manager = GameObjectManager::getInstance();
+    ImGui::PushID(obj->getName().c_str());
 
-	ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow;
-	if (manager->getSelectedObject() == obj)
-		flags |= ImGuiTreeNodeFlags_Selected;
+    bool isSelected = (manager->getSelectedObject() == obj);
+    ImGuiTreeNodeFlags flags = isSelected ? ImGuiTreeNodeFlags_Selected : 0;
+    if (obj->getChildren().empty()) flags |= ImGuiTreeNodeFlags_Leaf;
 
-	bool open = ImGui::TreeNodeEx(obj->getName().c_str(), flags);
+    bool open = ImGui::TreeNodeEx(obj->getName().c_str(), flags);
+    if (ImGui::IsItemClicked()) 
+    {
+        manager->setSelectedObject(obj);
+    }
 
-	// Selection
-	if (ImGui::IsItemClicked())
-		manager->setSelectedObject(obj->getName());
+    // Drag & Drop Source
+    if (ImGui::BeginDragDropSource()) 
+    {
+        ImGui::SetDragDropPayload("GAMEOBJECT_DRAG", obj->getName().c_str(), obj->getName().size() + 1);
+        ImGui::Text("Dragging: %s", obj->getName().c_str());
+        ImGui::EndDragDropSource();
+    }
 
-	// Drag source
-	if (ImGui::BeginDragDropSource())
-	{
-		ImGui::SetDragDropPayload("PARENTING_OP", &obj, sizeof(AGameObject*));
-		ImGui::Text("Dragging %s", obj->getName().c_str());
-		ImGui::EndDragDropSource();
-	}
+    // Drag & Drop Target
+    if (ImGui::BeginDragDropTarget()) 
+    {
+        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GAMEOBJECT_DRAG")) 
+        {
+            std::string draggedName = (const char*)payload->Data;
+            AGameObject* dragged = manager->findObjectByName(draggedName);
 
-	// Drop target
-	if (ImGui::BeginDragDropTarget())
-	{
-		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("PARENTING_OP"))
-		{
-			AGameObject* dragged = *(AGameObject**)payload->Data;
-			if (dragged != obj && !isDescendantOf(obj, dragged)) // prevent loops
-			{
-				dragged->setParentPreserveWorld(obj);
-			}
-		}
-		ImGui::EndDragDropTarget();
-	}
+            if (dragged && dragged != obj && !dragged->hasPhysics() && !dragged->isAncestorOf(obj)) 
+            {
+                dragged->setParent(obj);
+            }
+        }
+        ImGui::EndDragDropTarget();
+    }
 
-	if (open)
-	{
-		for (AGameObject* child : obj->getChildren())
-		{
-			drawObjectNodeRecursive(child);
-		}
-		ImGui::TreePop();
-	}
-}
+    if (open) 
+    {
+        for (AGameObject* child : obj->getChildren()) 
+        {
+            drawObjectHierarchyRecursive(child, manager);
+        }
 
-bool HierarchyScreen::isDescendantOf(AGameObject* parent, AGameObject* child)
-{
-	for (AGameObject* c : parent->getChildren())
-	{
-		if (c == child || isDescendantOf(c, child))
-			return true;
-	}
-	return false;
+        ImGui::TreePop();
+    }
+
+    ImGui::PopID();
 }

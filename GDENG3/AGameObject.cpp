@@ -332,83 +332,74 @@ void AGameObject::restoreEditState()
 	}
 }
 
-void AGameObject::setParent(AGameObject* parent)
+void AGameObject::setParent(AGameObject* newParent) 
 {
-	this->parent = parent;
-	if (parent) parent->addChild(this);
+	if (this->parent != nullptr) 
+		this->parent->removeChild(this);
+
+	this->parent = newParent;
+
+	if (newParent != nullptr) 
+		newParent->children.push_back(this);
 }
 
-AGameObject* AGameObject::getParent()
+void AGameObject::removeParent() 
+{
+	if (this->parent != nullptr) 
+	{
+		this->parent->removeChild(this);
+		this->parent = nullptr;
+	}
+}
+
+AGameObject* AGameObject::getParent() 
 {
 	return this->parent;
 }
 
-void AGameObject::addChild(AGameObject* child)
+void AGameObject::removeChild(AGameObject* child)
 {
-	this->children.push_back(child);
+	this->children.erase(std::remove(this->children.begin(), this->children.end(), child), this->children.end());
 }
 
-std::vector<AGameObject*> AGameObject::getChildren()
+const std::vector<AGameObject*>& AGameObject::getChildren() const 
 {
 	return this->children;
 }
 
-void AGameObject::setParentPreserveWorld(AGameObject* newParent)
+bool AGameObject::hasPhysics() 
 {
-	Matrix4x4 worldMatrix = this->getWorldMatrix();
-	this->setParent(newParent);
-
-	if (newParent)
-	{
-		Matrix4x4 parentWorld = newParent->getWorldMatrix();
-		Matrix4x4 inverseParent = parentWorld;
-		inverseParent.getInverse();
-
-		Matrix4x4 newLocal = worldMatrix.multiplyTo(inverseParent);
-
-		// Extract transform from matrix
-		Vector3D newPosition = Vector3D(
-			newLocal.m_mat[3][0],
-			newLocal.m_mat[3][1],
-			newLocal.m_mat[3][2]
-		);
-
-		this->setPosition(newPosition);
-
-		this->setScale(Vector3D(
-			Vector3D(newLocal.m_mat[0][0], newLocal.m_mat[0][1], newLocal.m_mat[0][2]).length(),
-			Vector3D(newLocal.m_mat[1][0], newLocal.m_mat[1][1], newLocal.m_mat[1][2]).length(),
-			Vector3D(newLocal.m_mat[2][0], newLocal.m_mat[2][1], newLocal.m_mat[2][2]).length()
-		));
-	}
+	return this->findComponentbyType(AComponent::Physics, "Physics Component") != nullptr;
 }
 
-void AGameObject::setWorldPosition(Vector3D worldPos)
+void AGameObject::updateTransformFromParent()
 {
-	if (this->parent)
-	{
-		Matrix4x4 parentWorld = this->parent->getWorldMatrix();
-		parentWorld.getInverse();
+	if (this->parent && !this->hasPhysics())
+		this->ComputeLocalMatrix();
 
-		Vector3D localPos = parentWorld.transformPoint(worldPos);
-		this->setPosition(localPos);
-	}
-	else
+	for (AGameObject* child : children)
+		child->updateTransformFromParent();
+}
+
+bool AGameObject::isAncestorOf(AGameObject* potentialChild)
+{
+	AGameObject* current = potentialChild->getParent();
+
+	while (current != nullptr) 
 	{
-		this->setPosition(worldPos);
+		if (current == this) return true;
+		current = current->getParent();
 	}
+
+	return false;
 }
 
 Matrix4x4 AGameObject::getWorldMatrix()
 {
-	ComputeLocalMatrix();
-
-	if (this->parent != nullptr)
+	if (this->parent && !this->hasPhysics()) 
 		return this->parent->getWorldMatrix().multiplyTo(this->LocalMatrix);
-	else
-		return this->LocalMatrix;
 
-	//return this->LocalMatrix;
+	return this->LocalMatrix;
 }
 
 void AGameObject::awake()

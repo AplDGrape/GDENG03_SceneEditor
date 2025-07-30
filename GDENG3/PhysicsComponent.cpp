@@ -73,18 +73,16 @@ RigidBody* PhysicsComponent::getRigidBody()
 	return this->rigidBody;
 }
 
-void PhysicsComponent::setRigidBody(RigidBody* body)
+void PhysicsComponent::clearRigidBody()
 {
-	this->rigidBody = body;
+	this->rigidBody = nullptr;
 }
 
-void PhysicsComponent::destroy()
+PhysicsComponent::~PhysicsComponent()
 {
-	if (this->rigidBody)
+	if (this->rigidBody != nullptr)
 	{
-		PhysicsWorld* physicsWorld = BaseComponentSystem::getInstance()->getPhysicsSystem()->getPhysicsWorld();
-		physicsWorld->destroyRigidBody(this->rigidBody);
-
+		BaseComponentSystem::getInstance()->getPhysicsSystem()->getPhysicsWorld()->destroyRigidBody(this->rigidBody);
 		this->rigidBody = nullptr;
 	}
 
