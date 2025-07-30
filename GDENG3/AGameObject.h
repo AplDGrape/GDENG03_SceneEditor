@@ -164,4 +164,6 @@ public:
 	bool hasPhysics();
 	void updateTransformFromParent();
 	bool isAncestorOf(AGameObject* potentialChild);
+
+	Matrix4x4 getWorldMatrix();
 };

@@ -374,7 +374,7 @@ void AGameObject::updateTransformFromParent()
 		this->ComputeLocalMatrix();
 
 		// Then multiply it with the parent’s local matrix to get world space
-		this->LocalMatrix = this->parent->getLocalMatrix().multiplyTo(this->LocalMatrix);
+		this->LocalMatrix = this->parent->getWorldMatrix().multiplyTo(this->LocalMatrix);
 	}
 
 	for (AGameObject* child : children)
@@ -391,6 +391,14 @@ bool AGameObject::isAncestorOf(AGameObject* potentialChild)
 		current = current->getParent();
 	}
 	return false;
+}
+
+Matrix4x4 AGameObject::getWorldMatrix()
+{
+	if (this->parent && !this->hasPhysics()) {
+		return this->parent->getWorldMatrix().multiplyTo(this->LocalMatrix);
+	}
+	return this->LocalMatrix;
 }
 
 void AGameObject::awake()
