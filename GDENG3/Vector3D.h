@@ -81,6 +81,11 @@ public:
 		return m_x * other.m_x + m_y * other.m_y + m_z * other.m_z;
 	}*/
 
+	float length() const
+	{
+		return sqrtf(m_x * m_x + m_y * m_y + m_z * m_z);
+	}
+
 	Vector3D operator*(float num)
 	{
 		return Vector3D(m_x * num, m_y * num, m_z * num);

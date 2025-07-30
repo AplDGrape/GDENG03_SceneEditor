@@ -1,5 +1,7 @@
 #include "AppWindow.h"
 #include "Debug.h"
+#include "DebugStreamBuf.h"
+#include "DebugRedirector.h"
 
 //struct vec3
 //{
@@ -84,8 +86,11 @@ void AppWindow::onUpdate()
 // AppWindow singleton
 void AppWindow::initialize()
 {
+	DebugRedirector::Initialize();
+
 	sharedInstance = new AppWindow();
 
+	DebugRedirector::Initialize();
 	GraphicsEngine::initialize();
 
 	sharedInstance->init();
@@ -96,14 +101,18 @@ void AppWindow::onCreate()
 	Window::onCreate();
 	InputSystem::initialize();
 
-	m_wireframe = new Wireframe(GraphicsEngine::getInstance()->getD3Ddevice());
+	Debug::Log("Initialize");
 
+
+	m_wireframe = new Wireframe(GraphicsEngine::getInstance()->getD3Ddevice());
+	
 	BaseComponentSystem::initialize();
 }
 
 // Initialize all Engine Systems
 void AppWindow::initializeEngine()
 {
+	//DebugRedirector::Initialize();
 	//GraphicsEngine::initialize();
 	EngineTime::initialize();
 	EngineBackEnd::initialize();
@@ -126,7 +135,6 @@ void AppWindow::initializeEngine()
 
 	m_swap_chain->init(this->m_hwnd, width, height);
 
-	// Def not hardcoded :) -> remind me to fix this
 	Debug::Log("Initialize");
 }
 
@@ -140,8 +148,10 @@ void AppWindow::onDestroy()
 {
 	Window::onDestroy();
 	InputSystem::destroy();
+
 	delete m_wireframe;
 	m_swap_chain->release();
+
 	GraphicsEngine::getInstance()->release();
 	TextureManager::destroy();
 	BaseComponentSystem::destroy();

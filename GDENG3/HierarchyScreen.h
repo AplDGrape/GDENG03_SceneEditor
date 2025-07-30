@@ -17,4 +17,7 @@ public:
 	~HierarchyScreen();
 private:
 	void generateButtons();
+
+	void drawObjectNodeRecursive(AGameObject* obj);
+	bool isDescendantOf(AGameObject* parent, AGameObject* child);
 };
