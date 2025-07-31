@@ -101,9 +101,6 @@ void AppWindow::onCreate()
 	Window::onCreate();
 	InputSystem::initialize();
 
-	Debug::Log("Initialize");
-
-
 	m_wireframe = new Wireframe(GraphicsEngine::getInstance()->getD3Ddevice());
 	
 	BaseComponentSystem::initialize();

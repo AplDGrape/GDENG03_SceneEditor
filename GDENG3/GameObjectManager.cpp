@@ -74,9 +74,11 @@ void GameObjectManager::renderAll(int viewportWidth, int viewportHeight)
 
 void GameObjectManager::addObject(AGameObject* gameObject)
 {
-	if (this->GameObjectTable[gameObject->getName()] != NULL) {
+	if (this->GameObjectTable[gameObject->getName()] != NULL) 
+	{
 		int gameObjectcount = 1;
 		String revisedString = gameObject->getName() + "(" + std::to_string(gameObjectcount) + ")";
+
 		for(int i = 0; i < this->GameObjectList.size(); i++)
 		{
 			if(this->GameObjectTable[revisedString] != NULL)
@@ -92,7 +94,8 @@ void GameObjectManager::addObject(AGameObject* gameObject)
 		gameObject->setName(revisedString);
 		this->GameObjectTable[revisedString] = gameObject;
 	}
-	else {
+	else 
+	{
 		this->GameObjectTable[gameObject->getName()] = gameObject;
 	}
 	
@@ -147,13 +150,6 @@ void GameObjectManager::createObject(PrimitiveType type)
 		Texcube->setPosition(0.0f, 1.0f, 0.0f);
 		Texcube->setScale(1.0f, 1.0f, 1.0f);
 		this->addObject(Texcube);
-	}
-	else if(type == PrimitiveType::CAPSULE)
-	{
-		Capsule* capsule = new Capsule("Capsule");
-		capsule->setPosition(0.0f, 1.0f, 0.0f);
-		capsule->setScale(0.25f, 0.25f, 0.25f);
-		this->addObject(capsule);
 	}
 	else if(type == PrimitiveType::PHYSICS_CUBE)
 	{
@@ -259,23 +255,6 @@ void GameObjectManager::applyEditorAction(EditorAction* action)
 		object->setScale(action->getStoredScale());
 	}
 }
-
-//void GameObjectManager::hundredCubes()
-//{
-//	int max = 1.5f;
-//	int min = -2.5f;
-//	Math math;
-//
-//	for (int i = 0; i < 100; i++)
-//	{
-//		float x = math.getRandom(min, max);
-//		float y = math.getRandom(min, max);
-//		Cube* cube = new Cube("Cube", AGameObject::CUBE);
-//		cube->setPosition(x, y, 0.0f);
-//		cube->setScale(1.0f, 1.0f, 1.0f);
-//		this->addObject(cube);
-//	}
-//}
 
 void GameObjectManager::generateTeapotOBJ()
 {
@@ -416,7 +395,6 @@ void GameObjectManager::createObjectFromFile(String name, AGameObject::Primitive
 		{
 			cube->ComputeLocalMatrix();
 			cube->attachComponent(new PhysicsComponent("Physics Component", cube));
-			
 		}
 
 		this->addObject(cube);
@@ -514,7 +492,6 @@ void GameObjectManager::createObjectFromFile(String name, AGameObject::Primitive
 			sphere->ComputeLocalMatrix();
 			sphere->attachComponent(new PhysicsComponent("Physics Component", sphere));
 			PhysicsComponent* component = (PhysicsComponent*)sphere->findComponentbyType(AComponent::ComponentType::Physics, "Physics Component");
-
 		}
 
 		this->addObject(sphere);

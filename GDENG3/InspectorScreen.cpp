@@ -96,7 +96,6 @@ void InspectorScreen::generateEditor()
 				GameObjectManager::getInstance()->setSelectedObject(NULL);
 			}
 		}
-
 	}
 	else 
 	{
@@ -107,9 +106,15 @@ void InspectorScreen::generateEditor()
 
 	if(this->textureDialogue->HasSelected())
 	{
+		/*AGameObject* selected = GameObjectManager::getInstance()->getSelectedObject();
+		if (selected)
+		{
+			Texture* text = TextureManager::getInstance()->createTextureFromFile(this->textureDialogue->GetSelected().c_str());
+			selected->setObjectTexture(text);
+		}*/
+
 		Texture* text = TextureManager::getInstance()->createTextureFromFile(this->textureDialogue->GetSelected().c_str());
 		GameObjectManager::getInstance()->getSelectedObject()->setObjectTexture(text);
-
 
 		this->textureDialogue->ClearSelected();
 		this->textureDialogue->Close();
