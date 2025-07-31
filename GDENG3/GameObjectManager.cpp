@@ -188,6 +188,15 @@ void GameObjectManager::createOBJMODEL(Mesh* mesh, String name, Texture* text)
 
 void GameObjectManager::deleteObject(AGameObject* gameObject)
 {
+	// Unlink from parent
+	if (gameObject->getParent())
+		gameObject->getParent()->removeChild(gameObject);
+
+	// Unlink children
+	for (AGameObject* child : gameObject->getChildren()) {
+		child->removeParent();
+	}
+
 	this->GameObjectTable.erase(gameObject->getName());
 	int index = -1;
 
