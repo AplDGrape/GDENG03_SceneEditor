@@ -1,11 +1,13 @@
 #include "Wireframe.h"
+#include "Debug.h"
 
 Wireframe::Wireframe(ID3D11Device* device)
 {
     //Wireframe
     D3D11_RASTERIZER_DESC desc = {};
     desc.FillMode = D3D11_FILL_WIREFRAME;
-    desc.CullMode = D3D11_CULL_BACK;
+    //desc.CullMode = D3D11_CULL_BACK;
+    desc.CullMode = D3D11_CULL_NONE;
     desc.DepthClipEnable = TRUE;
     device->CreateRasterizerState(&desc, &m_wireframeState);
 
@@ -27,18 +29,19 @@ void Wireframe::set(ID3D11DeviceContext* context)
 void Wireframe::enable(ID3D11DeviceContext* context)
 {
     m_enabled = true;
-    context->RSSetState(m_wireframeState);
+    context->RSSetState(m_solidState);
 }
 
 void Wireframe::disable(ID3D11DeviceContext* context)
 {
     m_enabled = false;
-    context->RSSetState(m_solidState);
+    context->RSSetState(m_wireframeState);
 }
 
 void Wireframe::toggle()
 {
     m_enabled = !m_enabled;
+    Debug::Log(std::string("[Wireframe] Toggled: ") + (m_enabled ? "Enabled" : "Disabled"));
 }
 
 bool Wireframe::isEnabled() const

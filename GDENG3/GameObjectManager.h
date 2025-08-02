@@ -71,7 +71,6 @@ public:
 	void applyEditorAction(EditorAction* action);
 
 	// Object generation
-	//void hundredCube();
 	void generatePhysicsCube();
 	void generateBunnyObj();
 	void generateArmadilloOBJ();

@@ -222,6 +222,9 @@
     <ClCompile Include="DemoScreen.cpp">
       <Filter>UI\DemoWindow</Filter>
     </ClCompile>
+    <ClCompile Include="EditorScreen.cpp">
+      <Filter>UI\Editor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppWindow.h">
@@ -461,6 +464,9 @@
     <ClInclude Include="DebugRedirector.h">
       <Filter>Debug</Filter>
     </ClInclude>
+    <ClInclude Include="EditorScreen.h">
+      <Filter>UI\Editor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="App">
@@ -672,6 +678,9 @@
     </Filter>
     <Filter Include="UI\DemoWindow">
       <UniqueIdentifier>{8c64005b-7d1d-49dd-a74d-d28cb212622f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Editor">
+      <UniqueIdentifier>{f90c922f-0b6c-4d36-ae2b-cd12f60a57c3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

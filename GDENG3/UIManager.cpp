@@ -28,15 +28,20 @@ UIManager::UIManager(HWND windowHandle)
 	this->uiTable[uiNames.MENU_SCREEN] = menuScreen;
 	this->uiList.push_back(menuScreen);
 
+	// Editor Main Screen
+	EditorScreen* editorScreen = new EditorScreen();
+	this->uiTable[uiNames.EDITOR_SCREEN] = editorScreen;
+	this->uiList.push_back(editorScreen);
+
 	// Inspector window
-	InspectorScreen* inspectorScreen = new InspectorScreen();
+	/*InspectorScreen* inspectorScreen = new InspectorScreen();
 	this->uiTable[uiNames.INSPECTOR_SCREEN] = inspectorScreen;
-	this->uiList.push_back(inspectorScreen);
+	this->uiList.push_back(inspectorScreen);*/
 
 	// Hierarchy window
-	HierarchyScreen* hierarchyScreen = new HierarchyScreen();
+	/*HierarchyScreen* hierarchyScreen = new HierarchyScreen();
 	this->uiTable[uiNames.HIERARCHY_SCREEN] = hierarchyScreen;
-	this->uiList.push_back(hierarchyScreen);
+	this->uiList.push_back(hierarchyScreen);*/
 
 	// Credits
 	CreditsScreen* creditsScreen = new CreditsScreen();

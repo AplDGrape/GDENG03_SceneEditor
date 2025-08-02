@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -172,6 +172,7 @@
     <ClInclude Include="DemoScreen.h" />
     <ClInclude Include="DeviceContext.h" />
     <ClInclude Include="EditorAction.h" />
+    <ClInclude Include="EditorScreen.h" />
     <ClInclude Include="EngineBackEnd.h" />
     <ClInclude Include="EngineTime.h" />
     <ClInclude Include="GameObjectManager.h" />
@@ -251,6 +252,7 @@
     <ClCompile Include="DemoScreen.cpp" />
     <ClCompile Include="DeviceContext.cpp" />
     <ClCompile Include="EditorAction.cpp" />
+    <ClCompile Include="EditorScreen.cpp" />
     <ClCompile Include="EngineBackEnd.cpp" />
     <ClCompile Include="EngineTime.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />

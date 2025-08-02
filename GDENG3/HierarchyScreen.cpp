@@ -6,11 +6,11 @@ HierarchyScreen::HierarchyScreen():AUIScreen("HierarchyScreen")
 
 void HierarchyScreen::drawUI()
 {
-	ImGui::Begin("Scene Outliner");
-	ImGui::SetWindowPos(ImVec2(UIManager::WINDOW_WIDTH - 890, 25));
-	ImGui::SetWindowSize(ImVec2(220, 250));
+	//ImGui::Begin("Scene Outliner");
+	//ImGui::SetWindowPos(ImVec2(UIManager::WINDOW_WIDTH - 890, 25));
+	//ImGui::SetWindowSize(ImVec2(220, 250));
 	this->generateButtons();
-	ImGui::End();
+	//ImGui::End();
 }
 
 HierarchyScreen::~HierarchyScreen()

@@ -4,6 +4,7 @@
 #include "GraphicsEngine.h"
 #include "ProfilerScreen.h"
 #include "MenuScreen.h"
+#include "EditorScreen.h"
 #include "InspectorScreen.h"
 #include "HierarchyScreen.h"
 #include "CreditsScreen.h"
