@@ -8,6 +8,7 @@ DebugConsoleScreen::DebugConsoleScreen() : AUIScreen("Debug Console Screen")
 void DebugConsoleScreen::drawUI()
 {
 	ImGui::Begin(name.c_str());
+	ImGui::SetWindowPos(ImVec2(UIManager::WINDOW_WIDTH - 1125, 505));
 	ImGui::BeginChild("ScrollingRegion", ImVec2(0, -30), false, ImGuiWindowFlags_AlwaysVerticalScrollbar);
 
 	auto messageList = Debug::GetInstance().GetMessageList(Debug::LogLevel::None);

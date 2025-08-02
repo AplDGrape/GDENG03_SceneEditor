@@ -9,7 +9,7 @@ void ScreenPlayBack::drawUI()
 	ImGui::Begin("Screen Play Back");
 	ImGui::SetWindowPos(ImVec2(UIManager::WINDOW_WIDTH - 1425, 25));
 	//ImGui::SetWindowPos(ImVec2(UIManager::WINDOW_WIDTH - 1024, 768));
-	ImGui::SetWindowSize(ImVec2(290, UIManager::WINDOW_HEIGHT - 800));
+	ImGui::SetWindowSize(ImVec2(150, UIManager::WINDOW_HEIGHT - 800));
 	EngineBackEnd* backend = EngineBackEnd::getInstance();
 
 	if (backend->getMode() == EngineBackEnd::EDITOR) 

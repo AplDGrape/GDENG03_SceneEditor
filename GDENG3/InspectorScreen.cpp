@@ -10,8 +10,8 @@ InspectorScreen::InspectorScreen():AUIScreen("Inspector Screen")
 void InspectorScreen::drawUI()
 {
 	ImGui::Begin("Inspector Window");
-	ImGui::SetWindowPos(ImVec2(UIManager::WINDOW_WIDTH - 275, 25));
-	ImGui::SetWindowSize(ImVec2(250, UIManager::WINDOW_HEIGHT));
+	ImGui::SetWindowPos(ImVec2(UIManager::WINDOW_WIDTH - 660, 25));
+	ImGui::SetWindowSize(ImVec2(220, 250));
 	this->generateEditor();
 	ImGui::End();
 }
