@@ -496,6 +496,18 @@ void GameObjectManager::createObjectFromFile(String name, AGameObject::Primitive
 
 		this->addObject(sphere);
 	}
+	else
+	{
+		OutputDebugStringA(("Unknown PrimitiveType: " + std::to_string(type) + "\n").c_str());
+
+		// Fallback to Cube
+		Cube* fallback = new Cube(name + "_Fallback", AGameObject::CUBE);
+		fallback->setPosition(position);
+		fallback->setRotation(rotation);
+		fallback->setScale(scale);
+
+		this->addObject(fallback);
+	}
 }
 
 GameObjectManager::~GameObjectManager()

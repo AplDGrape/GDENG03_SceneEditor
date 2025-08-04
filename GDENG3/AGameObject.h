@@ -29,6 +29,7 @@ public:
 		PLANE,
 		SPHERE,
 		CAPSULE,
+		QUAD,
 		PHYSICS_CUBE,
 		PHYSICS_PLANE,
 		OBJ,
