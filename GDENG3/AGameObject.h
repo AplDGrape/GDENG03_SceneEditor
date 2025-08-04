@@ -10,6 +10,7 @@
 
 #include "Texture.h"
 #include "AComponent.h"
+#include "OBJParenting.h"
 
 #include "reactphysics3d/reactphysics3d.h"
 
@@ -117,16 +118,16 @@ public:
 	virtual void restoreEditState();
 public:
 	AGameObject* getParent();
+	OBJParenting* getParenting();
 
 	void setParent(AGameObject* newParent);
 	void removeParent();
 	void removeChild(AGameObject* child);
-
-	void updateTransformFromParent();
 	const std::vector<AGameObject*>& getChildren() const;
+	void updateTransformFromParent();
+	bool isAncestorOf(AGameObject* potentialChild);
 
 	bool hasPhysics();
-	bool isAncestorOf(AGameObject* potentialChild);
 
 	Matrix4x4 getWorldMatrix();
 protected:
@@ -168,4 +169,6 @@ private:
 private:
 	AGameObject* parent = nullptr;
 	std::vector<AGameObject*> children;
+
+	OBJParenting* parenting = nullptr;
 };
