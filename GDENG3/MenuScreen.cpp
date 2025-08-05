@@ -50,7 +50,6 @@ void MenuScreen::drawUI()
 				if (ImGui::MenuItem("Create Capsule")) { GameObjectManager::getInstance()->createObject(GameObjectManager::CAPSULE); }
 				if (ImGui::MenuItem("Create Cylinder")) { GameObjectManager::getInstance()->createObject(GameObjectManager::CYLINDER); }
 				if (ImGui::MenuItem("Create Plane")) { GameObjectManager::getInstance()->createObject(GameObjectManager::PLANE); }
-				//if (ImGui::MenuItem("10000 Cubes")) { GameObjectManager::getInstance()->hundreadCubes(); }
 				ImGui::EndMenu();
 			}
 
@@ -59,6 +58,7 @@ void MenuScreen::drawUI()
 				if (ImGui::MenuItem("Create Physics Cube")) { GameObjectManager::getInstance()->createObject(GameObjectManager::PHYSICS_CUBE); }
 				if (ImGui::MenuItem("Create Physics Plane")) { GameObjectManager::getInstance()->createObject(GameObjectManager::PHYSICS_PLANE); }
 				if (ImGui::MenuItem("Generate 20 Physics Cubes")) { GameObjectManager::getInstance()->generatePhysicsCube(); }
+				if (ImGui::MenuItem("Generate 100 Physics Cubes")) { GameObjectManager::getInstance()->generateHundredPhysicsCube(); }
 				ImGui::EndMenu();
 			}
 

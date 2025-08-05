@@ -7,7 +7,7 @@ PhysicsSystem::PhysicsSystem()
 	this->physicsCommon = new PhysicsCommon();
 	PhysicsWorld::WorldSettings worldSeting;
 
-	worldSeting.defaultVelocitySolverNbIterations = 50;
+	worldSeting.defaultVelocitySolverNbIterations = 200;
 	worldSeting.gravity = Vector3(0, -9.81, 0);
 
 	this->physicsWorld = this->physicsCommon->createPhysicsWorld(worldSeting);

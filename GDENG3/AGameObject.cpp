@@ -9,6 +9,7 @@ AGameObject::AGameObject(String name, PrimitiveType type)
 	this->Rotation = Vector3D::zeros();
 	this->Scale = Vector3D::ones();
 	this->LocalMatrix.setIdentity();
+	this->parenting = new OBJParenting(this);
 }
 
 void AGameObject::setPosition(float x, float y, float z)
@@ -332,66 +333,49 @@ void AGameObject::restoreEditState()
 	}
 }
 
-void AGameObject::setParent(AGameObject* newParent) 
+AGameObject* AGameObject::getParent()
 {
-	if (this->parent != nullptr) 
-		this->parent->removeChild(this);
-
-	this->parent = newParent;
-
-	if (newParent != nullptr) 
-		newParent->children.push_back(this);
+	return parenting->getParent();
 }
 
-void AGameObject::removeParent() 
+OBJParenting* AGameObject::getParenting()
 {
-	if (this->parent != nullptr) 
-	{
-		this->parent->removeChild(this);
-		this->parent = nullptr;
-	}
+	return this->parenting;
 }
 
-AGameObject* AGameObject::getParent() 
+void AGameObject::setParent(AGameObject* newParent)
 {
-	return this->parent;
+	parenting->setParent(newParent);
+}
+
+void AGameObject::removeParent()
+{
+	parenting->removeParent();
 }
 
 void AGameObject::removeChild(AGameObject* child)
 {
-	this->children.erase(std::remove(this->children.begin(), this->children.end(), child), this->children.end());
+	parenting->removeChild(child);
 }
 
-const std::vector<AGameObject*>& AGameObject::getChildren() const 
+const std::vector<AGameObject*>& AGameObject::getChildren() const
 {
-	return this->children;
+	return parenting->getChildren();
+}
+
+void AGameObject::updateTransformFromParent()
+{
+	parenting->updateTransformFromParent();
+}
+
+bool AGameObject::isAncestorOf(AGameObject* potentialChild)
+{
+	return parenting->isAncestorOf(potentialChild);
 }
 
 bool AGameObject::hasPhysics() 
 {
 	return this->findComponentbyType(AComponent::Physics, "Physics Component") != nullptr;
-}
-
-void AGameObject::updateTransformFromParent()
-{
-	if (this->parent && !this->hasPhysics())
-		this->ComputeLocalMatrix();
-
-	for (AGameObject* child : children)
-		child->updateTransformFromParent();
-}
-
-bool AGameObject::isAncestorOf(AGameObject* potentialChild)
-{
-	AGameObject* current = potentialChild->getParent();
-
-	while (current != nullptr) 
-	{
-		if (current == this) return true;
-		current = current->getParent();
-	}
-
-	return false;
 }
 
 Matrix4x4 AGameObject::getWorldMatrix()
@@ -408,6 +392,7 @@ void AGameObject::awake()
 
 AGameObject::~AGameObject()
 {
+	delete parenting;
 	this->vertex_shader->release();
 	this->pixel_shader->release();
 }

@@ -36,7 +36,6 @@ AppWindow::AppWindow()
 {
 }
 
-//void AppWindow::update()
 void AppWindow::onUpdate()
 {
 	Window::onUpdate();
@@ -74,6 +73,7 @@ void AppWindow::onUpdate()
 	}
 
 	SceneCameraHandler::getInstance()->update();
+
 	GameObjectManager::getInstance()->renderAll(rc.right - rc.left, rc.bottom - rc.top);
 
 	UIManager::getInstance()->drawAllUI();
@@ -174,6 +174,30 @@ void AppWindow::onKeyDown(int key)
 	{
 		// Safely close the window
 		PostMessage(this->m_hwnd, WM_CLOSE, 0, 0);
+	}
+	if (key == 'B') // Undo
+	{
+		if (ActionHistory::getInstance()->hasRemainingUndoActions())
+		{
+			GameObjectManager::getInstance()->applyEditorAction(ActionHistory::getInstance()->undoAction());
+			std::cout << "[Action] Undo performed (via key B)\n";
+		}
+		else
+		{
+			std::cout << "[Action] No more actions to undo\n";
+		}
+	}
+	else if (key == 'C') // Redo
+	{
+		if (ActionHistory::getInstance()->hasRemainingRedoActions())
+		{
+			GameObjectManager::getInstance()->applyEditorAction(ActionHistory::getInstance()->redoAction());
+			std::cout << "[Action] Redo performed (via key C)\n";
+		}
+		else
+		{
+			std::cout << "[Action] No more actions to redo\n";
+		}
 	}
 }
 

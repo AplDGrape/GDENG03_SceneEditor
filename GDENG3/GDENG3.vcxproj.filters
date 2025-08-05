@@ -216,14 +216,17 @@
     <ClCompile Include="Texture.cpp">
       <Filter>GameEngine\GraphicsEngine\ResourceManager\TextureManager\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="Wireframe.cpp">
-      <Filter>GameEngine\Challenges</Filter>
-    </ClCompile>
     <ClCompile Include="DemoScreen.cpp">
       <Filter>UI\DemoWindow</Filter>
     </ClCompile>
     <ClCompile Include="EditorScreen.cpp">
       <Filter>UI\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Wireframe.cpp">
+      <Filter>GameEngine\Challenges\Wireframe</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJParenting.cpp">
+      <Filter>GameEngine\Challenges\OBJParenting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -452,9 +455,6 @@
     <ClInclude Include="Window.h">
       <Filter>GameEngine\Window</Filter>
     </ClInclude>
-    <ClInclude Include="Wireframe.h">
-      <Filter>GameEngine\Challenges</Filter>
-    </ClInclude>
     <ClInclude Include="DemoScreen.h">
       <Filter>UI\DemoWindow</Filter>
     </ClInclude>
@@ -466,6 +466,12 @@
     </ClInclude>
     <ClInclude Include="EditorScreen.h">
       <Filter>UI\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Wireframe.h">
+      <Filter>GameEngine\Challenges\Wireframe</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJParenting.h">
+      <Filter>GameEngine\Challenges\OBJParenting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -681,6 +687,12 @@
     </Filter>
     <Filter Include="UI\Editor">
       <UniqueIdentifier>{f90c922f-0b6c-4d36-ae2b-cd12f60a57c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Challenges\Wireframe">
+      <UniqueIdentifier>{ddf96401-3af9-4d5a-b738-f76198881eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Challenges\OBJParenting">
+      <UniqueIdentifier>{3480bbdf-1e66-4501-94f0-3b5a7ac65d4b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

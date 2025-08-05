@@ -375,6 +375,23 @@ void GameObjectManager::generateAllOBJ()
 	}
 }
 
+void GameObjectManager::generateHundredPhysicsCube()
+{
+	for (int i = 0; i < 100; i++) 
+	{
+		PhysicsCube* physicsCube = new PhysicsCube("Physics Cube");
+		Vector3D spawnPos = Vector3D(i % 10, 5 + i / 10, i / 10);
+		physicsCube->setPosition(spawnPos);
+		this->addObject(physicsCube);
+	}
+
+	/*for (int i = 0; i < 100; i++)
+	{
+		PhysicsCube* physicsCube = new PhysicsCube("Physics Cube");
+		this->addObject(physicsCube);
+	}*/
+}
+
 // Render from File
 void GameObjectManager::createObjectFromFile(String name, AGameObject::PrimitiveType type, Vector3D position, Vector3D rotation, Vector3D scale, bool rigidBody)
 {
@@ -495,6 +512,18 @@ void GameObjectManager::createObjectFromFile(String name, AGameObject::Primitive
 		}
 
 		this->addObject(sphere);
+	}
+	else
+	{
+		OutputDebugStringA(("Unknown PrimitiveType: " + std::to_string(type) + "\n").c_str());
+
+		// Fallback to Cube
+		Cube* fallback = new Cube(name + "_Fallback", AGameObject::CUBE);
+		fallback->setPosition(position);
+		fallback->setRotation(rotation);
+		fallback->setScale(scale);
+
+		this->addObject(fallback);
 	}
 }
 

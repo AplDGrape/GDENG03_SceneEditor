@@ -36,6 +36,7 @@ public:
 		SPHERE,
 		CYLINDER,
 		CAPSULE,
+		QUAD,
 		TEXTURED_CUBE,
 		PHYSICS_CUBE,
 		PHYSICS_PLANE,
@@ -76,6 +77,7 @@ public:
 	void generateArmadilloOBJ();
 	void generateTeapotOBJ();
 	void generateAllOBJ();
+	void generateHundredPhysicsCube();
 
 	void updateTransforms();
 
