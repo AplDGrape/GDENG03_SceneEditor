@@ -231,6 +231,9 @@ void Camera::update(float deltaTime)
 	if (InputSystem::getInstance()->isKeyDown(VK_SPACE)) pos = pos + up * speed;
 	if (InputSystem::getInstance()->isKeyDown(VK_CONTROL)) pos = pos - up * speed;
 
+	if (InputSystem::getInstance()->isKeyDown('Z')) pos = pos - forward * speed;
+	if (InputSystem::getInstance()->isKeyDown('X')) pos = pos + forward * speed;
+
 	this->setPosition(pos);
 	this->updateViewMatrix();
 }
