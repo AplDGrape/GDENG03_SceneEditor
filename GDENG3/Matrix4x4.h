@@ -108,22 +108,6 @@ public:
 		this->setMatrix(out);
 	}
 
-	/*Matrix4x4 multiplyTo(const Matrix4x4& other) const
-	{
-		Matrix4x4 result;
-		for (int i = 0; i < 4; ++i)
-		{
-			for (int j = 0; j < 4; ++j)
-			{
-				result.m_mat[i][j] =
-					m_mat[i][0] * other.m_mat[0][j] +
-					m_mat[i][1] * other.m_mat[1][j] +
-					m_mat[i][2] * other.m_mat[2][j] +
-					m_mat[i][3] * other.m_mat[3][j];
-			}
-		}
-		return result;
-	}*/
 	Matrix4x4 multiplyTo(Matrix4x4 in)
 	{
 		Matrix4x4 result;

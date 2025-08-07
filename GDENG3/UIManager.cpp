@@ -33,16 +33,6 @@ UIManager::UIManager(HWND windowHandle)
 	this->uiTable[uiNames.EDITOR_SCREEN] = editorScreen;
 	this->uiList.push_back(editorScreen);
 
-	// Inspector window
-	/*InspectorScreen* inspectorScreen = new InspectorScreen();
-	this->uiTable[uiNames.INSPECTOR_SCREEN] = inspectorScreen;
-	this->uiList.push_back(inspectorScreen);*/
-
-	// Hierarchy window
-	/*HierarchyScreen* hierarchyScreen = new HierarchyScreen();
-	this->uiTable[uiNames.HIERARCHY_SCREEN] = hierarchyScreen;
-	this->uiList.push_back(hierarchyScreen);*/
-
 	// Credits
 	CreditsScreen* creditsScreen = new CreditsScreen();
 	this->uiTable[uiNames.CREDITS_SCREEN] = creditsScreen;

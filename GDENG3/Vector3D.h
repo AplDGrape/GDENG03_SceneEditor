@@ -41,12 +41,6 @@ public:
 		float length_of_v = sqrt((v.m_x * v.m_x) + (v.m_y * v.m_y) + (v.m_z * v.m_z));
 		return Vector3D(v.m_x / length_of_v, v.m_y / length_of_v, v.m_z / length_of_v);
 	}
-	/*Vector3D normalize() const
-	{
-		float length = sqrt(m_x * m_x + m_y * m_y + m_z * m_z);
-		if (length == 0) return Vector3D(0, 0, 0); // avoid division by zero
-		return Vector3D(m_x / length, m_y / length, m_z / length);
-	}*/
 
 	// Cross product with another vector
 	static Vector3D cross(Vector3D v1, Vector3D v2)
@@ -57,14 +51,6 @@ public:
 		crossproduct.m_z = v1.m_x * v2.m_y - v1.m_y * v2.m_x;
 		return crossproduct;
 	}
-	/*Vector3D cross(const Vector3D& other) const
-	{
-		return Vector3D(
-			m_y * other.m_z - m_z * other.m_y,
-			m_z * other.m_x - m_x * other.m_z,
-			m_x * other.m_y - m_y * other.m_x
-		);
-	}*/
 
 	// Dot product with another vector
 	static int Dot(Vector3D v1, Vector3D v2)
@@ -76,10 +62,6 @@ public:
 		dproduct += v1.m_z * v2.m_z;
 		return dproduct;
 	}
-	/*float dot(const Vector3D& other) const
-	{
-		return m_x * other.m_x + m_y * other.m_y + m_z * other.m_z;
-	}*/
 
 	float length() const
 	{

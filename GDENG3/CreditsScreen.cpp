@@ -39,11 +39,6 @@ void CreditsScreen::drawUI()
         ImGui::Separator();
         ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 10.0f);
         ImGui::SetCursorPosX((ImGui::GetWindowSize().x - 80.0f) / 2.0f); // center button
-        /*if (ImGui::Button("Close", ImVec2(80, 0)))
-        {
-            //m_showCredits = false;
-            UIManager::getInstance()->hideCreditsScreen();
-        }*/
     }
 
 	ImGui::End();
