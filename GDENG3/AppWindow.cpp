@@ -3,33 +3,6 @@
 #include "DebugStreamBuf.h"
 #include "DebugRedirector.h"
 
-//struct vec3
-//{
-//	float x, y, z;
-//};
-//
-//struct vertex
-//{
-//	vec3 position;
-//	vec3 color;
-//};
-
-//struct InstanceData
-//{
-//	Matrix4x4 transform;
-//};
-//
-//__declspec(align(16))
-//struct constant
-//{
-//	Matrix4x4 m_world;
-//	Matrix4x4 m_view;
-//	Matrix4x4 m_proj;
-//	//unsigned int m_time;
-//	float m_time = 0.0f;
-//	float padding[3] = { 0.0f, 0.0f, 0.0f };
-//};
-
 AppWindow* AppWindow::sharedInstance = NULL;
 
 AppWindow::AppWindow()
@@ -109,8 +82,6 @@ void AppWindow::onCreate()
 // Initialize all Engine Systems
 void AppWindow::initializeEngine()
 {
-	//DebugRedirector::Initialize();
-	//GraphicsEngine::initialize();
 	EngineTime::initialize();
 	EngineBackEnd::initialize();
 	SceneCameraHandler::initialize();
