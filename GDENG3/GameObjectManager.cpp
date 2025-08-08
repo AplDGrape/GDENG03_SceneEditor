@@ -392,6 +392,17 @@ void GameObjectManager::generateHundredPhysicsCube()
 	}*/
 }
 
+void GameObjectManager::generate50PhysicsCube()
+{
+	for (int i = 0; i < 50; i++)
+	{
+		PhysicsCube* physicsCube = new PhysicsCube("Physics Cube");
+		Vector3D spawnPos = Vector3D(i % 10, 5 + i / 10, i / 10);
+		physicsCube->setPosition(spawnPos);
+		this->addObject(physicsCube);
+	}
+}
+
 // Render from File
 void GameObjectManager::createObjectFromFile(String name, AGameObject::PrimitiveType type, Vector3D position, Vector3D rotation, Vector3D scale, bool rigidBody)
 {

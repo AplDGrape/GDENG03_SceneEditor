@@ -77,6 +77,7 @@ public:
 	void generateArmadilloOBJ();
 	void generateTeapotOBJ();
 	void generateAllOBJ();
+	void generate50PhysicsCube();
 	void generateHundredPhysicsCube();
 
 	void updateTransforms();
